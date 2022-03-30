@@ -1,0 +1,42 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html body {
+  background-color: #fafafa;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* .card {
+  cursor: pointer;
+} */
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.formContainer span {
+  color: red;
+}
+
+.createPost {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.commentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+}
