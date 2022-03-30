@@ -1,9 +1,25 @@
 //Modèle des posts
 module.exports = (sequelize, DataTypes) => {
   const Users = sequelize.define("Users", {
-    username: {
+    email: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
+    },
+    firstname: {
+      type: DataTypes.STRING,
+    },
+    lastname: {
+      type: DataTypes.STRING,
+    },
+    userImage: {
+      type: DataTypes.STRING,
+    },
+    userCover: {
+      type: DataTypes.STRING,
+    },
+    username: {
+      type: DataTypes.STRING,
     },
     password: {
       type: DataTypes.STRING,

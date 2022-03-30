@@ -19,8 +19,12 @@ router.post("/submit", validateToken, async (req, res) => {
   // On récupère les données du body
   const post = req.body;
   const username = req.user.username;
+  const firstName = req.user.firstname;
+  const lastName = req.user.lastname;
   const Id = req.user.id;
   // On ajoute "username" et l'Id utilisateur à l'objet "comment". username et l'Id seront ajoutés dans la BDD lors de l'envoie (dans la colonne username et UserId)
+  post.firstName = firstName;
+  post.lastName = lastName;
   post.username = username;
   post.UserId = Id;
   // La fonction create nous arrive de sequelize et nous permet d'envoyer les données d'après le modèle dans la table Posts de la BDD

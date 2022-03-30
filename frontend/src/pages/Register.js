@@ -19,17 +19,14 @@ function Register() {
   const [alertMessage, setAlertMessage] = useState("");
 
   const initialValues = {
-    username: "",
+    email: "",
     password: "",
   };
 
   // Avec Yup et le Schema nous allons spécifier ce dont nous avons besoin dans les champs (validation)
   const validationSchema = Yup.object().shape({
-    username: Yup.string()
-      .min(3, `Le nom doit contenir au minimum 3 caractères`)
-      .max(30, `Le nom doit contenir au maximum 30 caractères`)
-      .required(`Le champ doit être rempli`),
-    password: Yup.string().min(5).max(20).required(`Le champ doit être rempli`),
+    email: Yup.string().email(`L'email n'est pas correct`).required(`L'email est requis`),
+    password: Yup.string().min(5).max(20).required(`Un mot de passe est requis`),
   });
 
   const onSubmit = (data) => {
@@ -70,13 +67,14 @@ function Register() {
                 validationSchema={validationSchema}
               >
                 <Form className="formContainer">
-                  <label>Utilisateur</label>
-                  <ErrorMessage name="username" component="span" />
+                  <label>Email</label>
+                  <ErrorMessage name="email" component="span" />
                   <Field
                     className="form-control mb-3"
                     id="inputCreatePost"
-                    name="username"
-                    placeholder="Le nom d'utilisateur..."
+                    type="email"
+                    name="email"
+                    placeholder="L'email de d'utilisateur..."
                   />
                   <label>Mot de passe</label>
                   <ErrorMessage name="password" component="span" />

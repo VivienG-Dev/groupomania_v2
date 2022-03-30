@@ -12,14 +12,14 @@ import Warning from "../components/Warning";
 
 function Login() {
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { setAuthState } = useContext(AuthContext);
   const [alert, setAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
 
   const login = () => {
-    const data = { username: username, password: password };
+    const data = { email: email, password: password };
     Axios.post("http://localhost:3001/auth/login", data).then((response) => {
       if (response.data.error) {
         setAlert(true);
@@ -27,7 +27,7 @@ function Login() {
       } else {
         localStorage.setItem("accessToken", response.data.token);
         setAuthState({
-          username: response.data.username,
+          email: response.data.email,
           id: response.data.id,
           status: true,
           isAdmin: response.data.isAdmin,
@@ -62,13 +62,13 @@ function Login() {
                 <Warning message={alertMessage} setAlert={setAlert} />
               )}
               <div className="createPost">
-                <label>Utilisateur</label>
+                <label>Email</label>
                 <input
                   className="form-control mb-4"
-                  type="text"
-                  placeholder="Le nom d'utilisateur..."
+                  type="email"
+                  placeholder="L'email utilisateur..."
                   onChange={(e) => {
-                    setUsername(e.target.value);
+                    setEmail(e.target.value);
                   }}
                 />
                 <label>Mot de passe</label>
