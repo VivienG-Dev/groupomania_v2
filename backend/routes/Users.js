@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
   // On récupère les données du body
   // Plutôt que de créer une simple variable comme dans Posts/Comments on déstructure l'objet, on récupère individuellement...
   // ...username et password car on va apporter des modifications à password (le hash), on a donc besoin de les séparer
-  const { email, password } = req.body;
+  const { email, firstname, lastname, password } = req.body;
   // On demande à sequelize d'aller dans la table users et de trouver UN utilisateur (par le username). Si le username est true alors on aura un message d'erreur
   const user = await Users.findOne({ where: { email: email } });
   if (user) {
@@ -26,6 +26,8 @@ router.post("/", async (req, res) => {
     bcrypt.hash(password, 10).then((hash) => {
       Users.create({
         email: email,
+        firstname: firstname,
+        lastname: lastname,
         password: hash,
         isAdmin: false
       });

@@ -20,12 +20,16 @@ function Register() {
 
   const initialValues = {
     email: "",
+    firstname: "",
+    lastname: "",
     password: "",
   };
 
   // Avec Yup et le Schema nous allons spécifier ce dont nous avons besoin dans les champs (validation)
   const validationSchema = Yup.object().shape({
     email: Yup.string().email(`L'email n'est pas correct`).required(`L'email est requis`),
+    firstname: Yup.string().required(`Le prénom est requis`),
+    lastname: Yup.string().required(`Le nom est requis`),
     password: Yup.string().min(5).max(20).required(`Un mot de passe est requis`),
   });
 
@@ -74,7 +78,23 @@ function Register() {
                     id="inputCreatePost"
                     type="email"
                     name="email"
-                    placeholder="L'email de d'utilisateur..."
+                    placeholder="Votre adresse email..."
+                  />
+                  <label>Nom</label>
+                  <ErrorMessage name="lastname" component="span" />
+                  <Field
+                    className="form-control mb-3"
+                    id="inputCreatePost"
+                    name="lastname"
+                    placeholder="Votre nom..."
+                  />
+                  <label>Prénom</label>
+                  <ErrorMessage name="firstname" component="span" />
+                  <Field
+                    className="form-control mb-3"
+                    id="inputCreatePost"
+                    name="firstname"
+                    placeholder="Votre prénom..."
                   />
                   <label>Mot de passe</label>
                   <ErrorMessage name="password" component="span" />
