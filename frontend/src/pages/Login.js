@@ -28,6 +28,8 @@ function Login() {
         localStorage.setItem("accessToken", response.data.token);
         setAuthState({
           email: response.data.email,
+          firstname: response.data.firstname,
+          lastname: response.data.lastname,
           id: response.data.id,
           status: true,
           isAdmin: response.data.isAdmin,

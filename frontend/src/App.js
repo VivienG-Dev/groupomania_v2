@@ -20,6 +20,8 @@ function App() {
   // On stock içi les informations récupérées par le useEffect et la route.get('/token')
   const [authState, setAuthState] = useState({
     username: "",
+    firstname: "",
+    lastname: "",
     id: 0,
     status: false,
     isAdmin: false,
@@ -42,6 +44,8 @@ function App() {
         // Içi on a besoin de tout modifier donc pas besoin de destructurer
         setAuthState({
           username: response.data.username,
+          firstname: response.data.firstname,
+          lastname: response.data.lastname,
           id: response.data.id,
           status: true,
           isAdmin: response.data.isAdmin,
@@ -108,7 +112,7 @@ function App() {
                   <Nav className="justify-content-end">
                     <Navbar.Text>
                       Bienvenue :{" "}
-                      <Link to="/profile">{authState.username}</Link>
+                      <Link to="/profile">{authState.firstname}</Link>
                     </Navbar.Text>
                     <div className="vr mx-3" />
                     <Button size="sm" variant="outline-danger" onClick={logout}>
