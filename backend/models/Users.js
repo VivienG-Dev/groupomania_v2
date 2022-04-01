@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     userImage: {
       type: DataTypes.STRING,
+      defaultValue: "../user-default.png",
     },
     userCover: {
       type: DataTypes.STRING,

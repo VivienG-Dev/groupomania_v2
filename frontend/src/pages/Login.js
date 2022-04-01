@@ -30,6 +30,7 @@ function Login() {
           email: response.data.email,
           firstname: response.data.firstname,
           lastname: response.data.lastname,
+          userImage: response.data.userImage,
           id: response.data.id,
           status: true,
           isAdmin: response.data.isAdmin,

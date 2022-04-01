@@ -22,6 +22,7 @@ function App() {
     username: "",
     firstname: "",
     lastname: "",
+    userImage: "",
     id: 0,
     status: false,
     isAdmin: false,
@@ -46,6 +47,7 @@ function App() {
           username: response.data.username,
           firstname: response.data.firstname,
           lastname: response.data.lastname,
+          userImage: response.data.userImage,
           id: response.data.id,
           status: true,
           isAdmin: response.data.isAdmin,
@@ -95,9 +97,6 @@ function App() {
                       <Link className="nav-link" to="/submit">
                         Ajouter un article
                       </Link>
-                      <Link className="nav-link" to="/profile">
-                        Profile
-                      </Link>
                     </>
                   )}
                   {authState.isAdmin === true && (
@@ -112,7 +111,14 @@ function App() {
                   <Nav className="justify-content-end">
                     <Navbar.Text>
                       Bienvenue :{" "}
-                      <Link to="/profile">{authState.firstname}</Link>
+                      <Link to="/profile">
+                        <img
+                          src={authState.userImage}
+                          height="25"
+                          className="d-inline-block align-top"
+                        ></img>{" "}
+                        {authState.firstname}
+                      </Link>
                     </Navbar.Text>
                     <div className="vr mx-3" />
                     <Button size="sm" variant="outline-danger" onClick={logout}>
