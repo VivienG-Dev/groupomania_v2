@@ -7,7 +7,7 @@ function HomePostCard(props) {
     <Card className="card mb-4 rounded-3 shadow" border="light">
       <Card.Body>
         <span className="fw-light">
-          Auteur: {props.post.username} Date: {props.newDatePost}
+          Auteur: {props.post.firstname} Date: {props.newDatePost}
         </span>
         <Card.Title>{props.post.title}</Card.Title>
         <Card.Text>{props.truncate(props.post.postText, 250, props.post.postText)}</Card.Text>
