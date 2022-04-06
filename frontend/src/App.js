@@ -48,6 +48,7 @@ function App() {
           firstname: response.data.firstname,
           lastname: response.data.lastname,
           userImage: response.data.userImage,
+          email: response.data.email,
           id: response.data.id,
           status: true,
           isAdmin: response.data.isAdmin,
@@ -132,7 +133,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/submit" element={<CreatePost />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile" element={<Profile user={authState} />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/posts/:id" element={<Post />} />
